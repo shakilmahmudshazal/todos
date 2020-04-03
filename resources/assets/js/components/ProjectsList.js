@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import NewProject from './NewProject'
 
 import { Button, Checkbox, Input } from 'antd';
 
@@ -75,7 +74,7 @@ class ProjectsList extends Component {
           errors: error.response.data.errors
         })
       })
-      this.setState({name:""});
+    this.setState({ name: "" });
     this.reload();
   }
 
@@ -157,7 +156,7 @@ class ProjectsList extends Component {
     })
   }
   render() {
-    const { projects } = this.state;
+    const { projects, filter } = this.state;
     return (
       <div>
         <div className='container py-4'>
@@ -202,17 +201,17 @@ class ProjectsList extends Component {
                   justifyContent: 'space-between'
                 }}>
                   <span>Total Items : {projects.length} </span>
-                  <Button type="link" onClick={this.showAll}> All</Button>
-                  <Button type="link" onClick={this.showActive}> Active</Button>
-                  <Button type="link" onClick={this.showCompleted}> Completed</Button>
-                  <Button type="link" onClick={this.clearCompleted}> Clear Completed</Button>
-                </div>
-
+                  <Button type="link" onClick={this.showAll} style={filter == 1 ? { backgroundColor: "#ffceab" } : {backgroundColor: "#ffffff" }}> All</Button>
+                <Button type="link" onClick={this.showActive} style={filter == 2 ? { backgroundColor: "#ffceab" } : {backgroundColor: "#ffffff" }}> Active</Button>
+                <Button type="link" onClick={this.showCompleted} style={filter == 3 ? { backgroundColor: "#ffceab" } : {backgroundColor: "#ffffff" }}> Completed</Button>
+                <Button type="link" onClick={this.clearCompleted}> Clear Completed</Button>
               </div>
+
             </div>
           </div>
         </div>
       </div>
+      </div >
     )
   }
 }

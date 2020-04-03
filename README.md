@@ -1,4 +1,4 @@
-This app is created with laravel and react js run these command after clone this:
+This app is created with laravel and react js run these command after cloning this repository:
 
 composer install
 npm install 
